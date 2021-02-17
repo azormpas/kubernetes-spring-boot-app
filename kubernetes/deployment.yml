@@ -72,7 +72,7 @@ kind: Service
 metadata:
   name: my-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: carshop-web-app
   ports:
