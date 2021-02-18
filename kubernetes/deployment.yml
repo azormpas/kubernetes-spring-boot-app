@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: car-db
+  name: car-db-service
 spec:
   ports:
     - port: 3306
@@ -12,7 +12,9 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: car-db-deployment
+  name: car-db
+  labels:
+    app: car-db
 spec:
   selector:
     matchLabels:
@@ -45,9 +47,9 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: carshop-web-app
   labels:
     app: carshop-web-app
-  name: carshop-web-app
 spec:
   replicas: 3
   selector:
